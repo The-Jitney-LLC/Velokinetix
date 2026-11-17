@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Log in | Velo Kinetix Systems</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@400;500;600&display=swap">
+<style>:root{--vk-bg:#03060a;--vk-bg2:#06101a;--vk-fg:#e6f6ff;--vk-muted:#9cbccd;--vk-accent:#3fd0ff;--vk-line:rgba(120,210,255,.22);
+ --vk-display:"Space Grotesk",system-ui,sans-serif;--vk-body:"Inter",system-ui,sans-serif;color-scheme:dark}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+html,body{margin:0;min-height:100%;background:radial-gradient(1000px 600px at 70% 20%,rgba(63,208,255,.12),transparent 60%),var(--vk-bg);color:var(--vk-fg)}
+body{font-family:var(--vk-body);font-size:16px;line-height:1.5}
+.vk-auth{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:22px;padding:40px max(16px,env(safe-area-inset-right,0px)) 40px max(16px,env(safe-area-inset-left,0px))}
+.vk-brand{color:var(--vk-fg);text-decoration:none;font:600 15px var(--vk-display);letter-spacing:.18em;text-transform:uppercase;text-shadow:0 0 12px rgba(63,208,255,.7)}
+.vk-panel{width:100%;max-width:440px;border:1px solid var(--vk-line);border-radius:18px;padding:22px 26px 26px;background:rgba(6,16,26,.9);box-shadow:0 0 50px -16px rgba(63,208,255,.55)}
+.vk-tabs{display:grid;grid-template-columns:1fr 1fr;gap:6px;padding:4px;border:1px solid var(--vk-line);border-radius:999px;margin-bottom:22px}
+.vk-tabs button{font:500 14px var(--vk-display);color:var(--vk-muted);background:none;border:0;border-radius:999px;padding:9px;cursor:pointer}
+.vk-tabs button[aria-selected="true"]{color:#02131d;background:var(--vk-accent)}
+h1{font:600 24px var(--vk-display);margin:0}
+.vk-sub{color:var(--vk-muted);margin:-6px 0 0;font-size:14px}
+.vk-form{display:grid;gap:14px}
+.vk-form label{display:grid;gap:6px;font:500 14px var(--vk-display)}
+.vk-form small{color:var(--vk-muted);font:12px var(--vk-body)}
+.vk-form input{font:16px var(--vk-body);color:var(--vk-fg);background:var(--vk-bg);border:1px solid var(--vk-line);border-radius:10px;padding:12px 14px;width:100%}
+.vk-btn{min-height:48px;border:0;border-radius:999px;font:600 15px var(--vk-display);letter-spacing:.04em;color:#02131d;background:linear-gradient(135deg,#9eeaff,var(--vk-accent) 45%,#0a8fd6);box-shadow:0 0 18px rgba(63,208,255,.55);cursor:pointer}
+.vk-btn:disabled{opacity:.6;cursor:wait}
+.vk-switch{margin:0;color:var(--vk-muted);font-size:14px;text-align:center}
+.vk-link{font:inherit;color:var(--vk-accent);background:none;border:0;padding:0;cursor:pointer;text-decoration:underline}
+.vk-status{margin:0;min-height:1.4em;font-size:14px;color:var(--vk-muted);text-align:center}
+.vk-status.ok{color:#7ef0b0}.vk-status.err{color:#ff9c8a}
+.vk-back{color:var(--vk-muted);font-size:14px;text-decoration:none}.vk-back:hover{color:var(--vk-accent)}
+a:focus-visible,button:focus-visible,input:focus-visible{outline:2px solid var(--vk-accent);outline-offset:2px}
+</style>
+</head><body>
+<div class="vk-auth">
+  <a class="vk-brand" href="index.html">Velo Kinetix</a>
+  <div class="vk-panel">
+    <div class="vk-tabs" role="tablist">
+      <button type="button" role="tab" id="t-in" aria-selected="false" aria-controls="p-in">Sign in</button>
+      <button type="button" role="tab" id="t-up" aria-selected="true" aria-controls="p-up">Create account</button>
+    </div>
+    <form id="p-in" class="vk-form" role="tabpanel" aria-labelledby="t-in" novalidate hidden>
+      <h1>Welcome back</h1>
+      <label for="in-email">Email<input id="in-email" name="email" type="email" required autocomplete="email"></label>
+      <label for="in-pass">Password<input id="in-pass" name="password" type="password" required autocomplete="current-password"></label>
+      <button class="vk-btn vk-btn-primary" type="submit">Sign in</button>
+      <p class="vk-switch">New to Velo Kinetix? <button type="button" class="vk-link" data-go="up">Create an account</button></p>
+      <p class="vk-status" role="status" aria-live="polite"></p>
+    </form>
+    <form id="p-up" class="vk-form" role="tabpanel" aria-labelledby="t-up" novalidate>
+      <h1>Create your account</h1>
+      <p class="vk-sub">Set up your client account to track your package, workflows and alerts.</p>
+      <label for="up-name">Name<input id="up-name" name="name" required autocomplete="name"></label>
+      <label for="up-company">Company<input id="up-company" name="company" autocomplete="organization"></label>
+      <label for="up-email">Email<input id="up-email" name="email" type="email" required autocomplete="email"></label>
+      <label for="up-pass">Password<input id="up-pass" name="password" type="password" required minlength="8" autocomplete="new-password"><small>At least 8 characters</small></label>
+      <label for="up-pass2">Confirm password<input id="up-pass2" name="password_confirm" type="password" required autocomplete="new-password"></label>
+      <button class="vk-btn vk-btn-primary" type="submit">Create account</button>
+      <p class="vk-switch">Already have an account? <button type="button" class="vk-link" data-go="in">Sign in</button></p>
+      <p class="vk-status" role="status" aria-live="polite"></p>
+    </form>
+  </div>
+  <a class="vk-back" href="index.html">Back to home</a>
+</div>
+<script src="config.js"></script>
+<script>
+(function(){
+/* The Render back end address is set once, in config.js. */
+var VK_API=(window.VK_API||"").replace(/\/+$/,"");
+var VK_AUTH={signin:VK_API&&VK_API+"/api/signin",signup:VK_API&&VK_API+"/api/signup",afterLogin:"account.html"};
+var tabs={in:document.getElementById('t-in'),up:document.getElementById('t-up')},panels={in:document.getElementById('p-in'),up:document.getElementById('p-up')};
+function show(k){Object.keys(tabs).forEach(function(n){tabs[n].setAttribute('aria-selected',n===k);panels[n].hidden=n!==k});try{history.replaceState(null,'',k==='in'?'#signin':'#signup')}catch(e){}}
+tabs.in.onclick=function(){show('in')};tabs.up.onclick=function(){show('up')};
+document.querySelectorAll('[data-go]').forEach(function(b){b.onclick=function(){show(b.getAttribute('data-go'))}});
+if(location.hash==='#signin')show('in');
+window.addEventListener('hashchange',function(){show(location.hash==='#signin'?'in':'up')});
+function send(form,url,data,okMsg){var st=form.querySelector('.vk-status'),btn=form.querySelector('.vk-btn');
+ if(!url){st.className='vk-status err';st.textContent='Client accounts are opening soon. Please book a consultation on the home page in the meantime.';return}
+ btn.disabled=true;st.className='vk-status';st.textContent='One moment…';
+ fetch(url,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(data)})
+ .then(function(r){return r.json().catch(function(){return{}}).then(function(j){if(!r.ok)throw new Error(j.message||j.error||'');return j})})
+ .then(function(j){try{localStorage.setItem('vk_token',j.token)}catch(e){}st.className='vk-status ok';st.textContent=okMsg;setTimeout(function(){location.href=VK_AUTH.afterLogin},900)})
+ .catch(function(e){st.className='vk-status err';st.textContent=e.message||'That did not work. Check your details and try again.'})
+ .finally(function(){btn.disabled=false})}
+function val(f){var d={};new FormData(f).forEach(function(v,k){d[k]=String(v).trim()});return d}
+panels.in.addEventListener('submit',function(e){e.preventDefault();var d=val(this),st=this.querySelector('.vk-status');
+ if(!d.email||!d.password){st.className='vk-status err';st.textContent='Enter your email and password.';return}
+ send(this,VK_AUTH.signin,{email:d.email,password:d.password},'Signed in.')});
+panels.up.addEventListener('submit',function(e){e.preventDefault();var d=val(this),st=this.querySelector('.vk-status');st.className='vk-status err';
+ if(!d.name||!d.email||!d.password){st.textContent='Enter your name, email and a password.';return}
+ if(!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(d.email)){st.textContent='Enter a valid email address.';return}
+ if(d.password.length<8){st.textContent='Your password needs at least 8 characters.';return}
+ if(d.password!==d.password_confirm){st.textContent='The two passwords do not match.';return}
+ delete d.password_confirm;send(this,VK_AUTH.signup,d,'Account created.')});
+})();
+
+</script>
+</body></html>
