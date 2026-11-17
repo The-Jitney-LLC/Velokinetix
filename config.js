@@ -3,4 +3,4 @@
    Find it at the top of your Render service page, for example:
    window.VK_API = "https://velokinetix-api.onrender.com";
    While it is empty, Sign Up and Login show "Client accounts are opening soon". */
-window.VK_API = "";
+window.VK_API = "https://www-velokinetixsystems-com.onrender.com";
