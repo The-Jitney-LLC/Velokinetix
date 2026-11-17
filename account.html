@@ -86,10 +86,10 @@ a:focus-visible,button:focus-visible,input:focus-visible{outline:2px solid var(-
     </section>
   </main>
 </div>
-<script src="config.js"></script>
+<script src="config.js?v=2"></script>
 <script>
 (function(){
-var API=(window.VK_API||"").replace(/\/+$/,""),token=null;
+var API=(window.VK_API||"https://www-velokinetixsystems-com.onrender.com").replace(/\/+$/,""),token=null;
 try{token=localStorage.getItem('vk_token')}catch(e){}
 function out(){try{localStorage.removeItem('vk_token')}catch(e){}location.href='login.html#signin'}
 if(!API||!token){location.replace('login.html#signin');return}

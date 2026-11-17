@@ -60,11 +60,11 @@ a:focus-visible,button:focus-visible,input:focus-visible{outline:2px solid var(-
   </div>
   <a class="vk-back" href="index.html">Back to home</a>
 </div>
-<script src="config.js"></script>
+<script src="config.js?v=2"></script>
 <script>
 (function(){
 /* The Render back end address is set once, in config.js. */
-var VK_API=(window.VK_API||"").replace(/\/+$/,"");
+var VK_API=(window.VK_API||"https://www-velokinetixsystems-com.onrender.com").replace(/\/+$/,"");
 var VK_AUTH={signin:VK_API&&VK_API+"/api/signin",signup:VK_API&&VK_API+"/api/signup",afterLogin:"account.html"};
 var tabs={in:document.getElementById('t-in'),up:document.getElementById('t-up')},panels={in:document.getElementById('p-in'),up:document.getElementById('p-up')};
 function show(k){Object.keys(tabs).forEach(function(n){tabs[n].setAttribute('aria-selected',n===k);panels[n].hidden=n!==k});try{history.replaceState(null,'',k==='in'?'#signin':'#signup')}catch(e){}}
