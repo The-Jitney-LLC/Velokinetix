@@ -203,10 +203,19 @@ async function checkSite(site) {
   if (was !== status && !(was === 'unknown' && status === 'up')) {
     await db.query('INSERT INTO agent_events (site_id,kind,detail) VALUES ($1,$2,$3)', [site.id, status, error]);
     const c = prev.rows[0];
+    const kind = status === 'down' ? 'Site down' : status === 'slow' ? 'Site slowdown' : 'Site recovered';
+    // Field names match "The Jitney - Workflow Error Alerts" in Make (sheet row + email).
     postToMake(process.env.MAKE_ALERT_WEBHOOK, {
+      vendor: c.company || c.name,
+      scenario_name: 'Site agent: ' + site.label,
+      scenario_id: 'site-' + site.id,
+      failed_step: 'Website check: ' + site.url,
+      error_type: kind,
+      error_message: (error || 'Back up and responding') + ' (was ' + was + ', response ' + ms + ' ms)',
+      execution_link: site.url,
+      ref: c.name + ' <' + c.email + '>',
       event: status === 'up' ? 'site_recovered' : 'site_' + status,
-      site: site.label, url: site.url, status, previous_status: was, detail: error, response_ms: ms,
-      client_name: c.name, client_company: c.company, client_email: c.email, checked_at: new Date().toISOString()
+      checked_at: new Date().toISOString()
     });
   }
 }
