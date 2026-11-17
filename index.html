@@ -94,6 +94,8 @@ body{font-family:var(--vk-body);font-size:16px;line-height:1.6}
 #vk-hero .vk-links a:hover,#vk-hero .vk-links a[aria-current="page"]{color:#fff;text-shadow:0 0 10px var(--vk-accent),0 0 22px var(--vk-accent);background:rgba(63,208,255,.10)}
 #vk-hero .vk-links .vk-login{border:1px solid var(--vk-line);margin-left:6px;box-shadow:0 0 14px rgba(63,208,255,.25) inset}
 #vk-hero .vk-links .vk-login:hover{border-color:var(--vk-accent)}
+#vk-hero .vk-links .vk-signup{margin-left:6px;color:#02131d;background:linear-gradient(135deg,#9eeaff,var(--vk-accent) 50%,var(--vk-accent-2));box-shadow:0 0 16px rgba(63,208,255,.55);font-weight:600}
+#vk-hero .vk-links .vk-signup:hover{color:#02131d;text-shadow:none;background:linear-gradient(135deg,#c4f3ff,var(--vk-accent))}
 #vk-hero .vk-menu-btn{display:none;font:500 14px var(--vk-display);color:var(--vk-fg);background:rgba(3,6,10,.6);border:1px solid var(--vk-line);border-radius:999px;padding:8px 14px;cursor:pointer}
 /* main buttons */
 #vk-hero .vk-cta{position:absolute;left:0;right:0;bottom:6%;z-index:3;display:flex;justify-content:center;flex-wrap:wrap;gap:14px;padding:0 20px}
@@ -108,7 +110,7 @@ body{font-family:var(--vk-body);font-size:16px;line-height:1.6}
   #vk-hero .vk-menu-btn{display:inline-block}
   #vk-hero .vk-links{display:none;position:absolute;top:100%;right:12px;flex-direction:column;align-items:stretch;min-width:190px;padding:8px;background:rgba(3,8,14,.94);border:1px solid var(--vk-line);border-radius:14px;box-shadow:0 0 30px rgba(63,208,255,.25)}
   #vk-hero .vk-nav.vk-open .vk-links{display:flex}
-  #vk-hero .vk-links .vk-login{margin:4px 0 0;text-align:center}
+  #vk-hero .vk-links .vk-login,#vk-hero .vk-links .vk-signup{margin:4px 0 0;text-align:center}
 }
 @media (max-width:640px){
   #vk-hero .vk-cta{position:static;padding:18px 16px 22px;background:var(--vk-bg)}
@@ -126,7 +128,8 @@ body{font-family:var(--vk-body);font-size:16px;line-height:1.6}
         <li><a href="#services">Services</a></li>
         <li><a href="#pricing">Pricing</a></li>
         <li><a href="#about">About</a></li>
-        <li><a class="vk-login" href="login.html">Login</a></li>
+        <li><a class="vk-login" href="login.html#signin">Login</a></li>
+        <li><a class="vk-signup" href="login.html#signup">Sign Up</a></li>
       </ul>
     </nav>
     <canvas id="vk-hero-canvas" aria-label="Animated Velo Kinetix Systems artwork: a figure made of light typing, energy streams flowing into a pulsing infinity symbol"></canvas>
@@ -435,7 +438,7 @@ n.querySelectorAll('.vk-links a').forEach(function(a){a.addEventListener('click'
 </section>
 
 </main>
-<footer class="vk-foot"><div class="vk-in"><span>© <span id="vk-year">2026</span> The Jitney LLC · Velo Kinetix Systems</span><nav><a href="#services">Services</a><a href="#pricing">Pricing</a><a href="#about">About</a><a href="login.html">Login</a></nav></div></footer>
+<footer class="vk-foot"><div class="vk-in"><span>© <span id="vk-year">2026</span> The Jitney LLC · Velo Kinetix Systems</span><nav><a href="#services">Services</a><a href="#pricing">Pricing</a><a href="#about">About</a><a href="login.html#signin">Login</a><a href="login.html#signup">Sign Up</a></nav></div></footer>
 <script>
 (function(){
 /* Make webhook for the "Velo Kinetix Site 1" scenario (same address the previous homepage used). */

@@ -1,0 +1,6 @@
+.git
+server/node_modules
+*.html
+config.js
+CNAME
+README.md
